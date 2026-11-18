@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sumit Bhai Tere Liye Surprise 😂</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ min-height:100vh;
+ overflow-x:hidden;
+ font-family:Arial,sans-serif;
+ text-align:center;
+ color:white;
+ background:linear-gradient(135deg,#001b66,#087cf0,#00c6ff);
+}
+.container{
+ position:relative;
+ z-index:2;
+ padding:35px 15px;
+}
+h1{
+ font-size:30px;
+ text-shadow:0 0 15px #fff;
+ animation:pulse 2s infinite;
+}
+h2{font-size:25px}
+.photo{
+ width:min(85%,330px);
+ border:5px solid white;
+ border-radius:25px;
+ box-shadow:0 0 30px #00eaff;
+ animation:float 3s ease-in-out infinite;
+}
+p{
+ font-size:23px;
+ font-weight:bold;
+}
+button{
+ padding:14px 25px;
+ border:0;
+ border-radius:30px;
+ background:#fff;
+ color:#0056bb;
+ font-size:17px;
+ font-weight:bold;
+ margin:10px;
+ box-shadow:0 5px 20px #001c55;
+}
+.emoji{
+ position:fixed;
+ z-index:1;
+ bottom:-60px;
+ font-size:35px;
+ pointer-events:none;
+ animation:rise linear infinite;
+}
+@keyframes rise{
+ 0%{transform:translateY(0) rotate(0) scale(.7);opacity:0}
+ 15%{opacity:1}
+ 100%{transform:translateY(-115vh) rotate(500deg) scale(1.5);opacity:0}
+}
+@keyframes float{
+ 50%{transform:translateY(-12px) rotate(2deg)}
+}
+@keyframes pulse{
+ 50%{transform:scale(1.06)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>🎁 Sumit Bhai Tere Liye Surprise 🎁</h1>
+
+<h2>😂 Takla Kaisa Hai Tu? 😂</h2>
+
+<img class="photo"
+src="file_00000000537c82119fd65649e681c18c.png"
+alt="Sumit Bhai">
+
+<p>😁 Bhai hairstyle toh gayi! 😂</p>
+<p>🤣 Ab bata kaisa lag raha hai?</p>
+
+<button onclick="playSong()">🎵 Play Song</button>
+<button onclick="pauseSong()">⏸ Pause</button>
+
+<audio id="music"
+src="Cartoon_Smash_20261118_194539870.mp3"
+loop preload="auto"></audio>
+
+<h2>😂🤣😁😜</h2>
+<p>Made With ❤️ For Sumit Bhai</p>
+</div>
+
+<script>
+const emojis=["😁","😂","🤣","😜","😎","🤪"];
+
+function makeEmoji(){
+ const e=document.createElement("div");
+ e.className="emoji";
+ e.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+ e.style.left=Math.random()*95+"vw";
+ e.style.animationDuration=(5+Math.random()*5)+"s";
+ document.body.appendChild(e);
+ setTimeout(()=>e.remove(),10000);
+}
+setInterval(makeEmoji,450);
+
+const music=document.getElementById("music");
+
+function playSong(){
+ music.play();
+}
+function pauseSong(){
+ music.pause();
+}
+
+// Try autoplay when the browser permits it
+window.addEventListener("load",()=>{
+ music.play().catch(()=>{});
+});
+</script>
+
+</body>
+</html>
